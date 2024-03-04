@@ -3,37 +3,118 @@
 \section{Introductie}%
 \label{sec:introductie}
 
-Waarover zal je bachelorproef gaan? Introduceer het thema en zorg dat volgende zaken zeker duidelijk aanwezig zijn:
-
-\begin{itemize}
-  \item kaderen thema
-  \item de doelgroep
-  \item de probleemstelling en (centrale) onderzoeksvraag
-  \item de onderzoeksdoelstelling
-\end{itemize}
-
-Denk er aan: een typische bachelorproef is \textit{toegepast onderzoek}, wat betekent dat je start vanuit een concrete probleemsituatie in bedrijfscontext, een \textbf{casus}. Het is belangrijk om je onderwerp goed af te bakenen: je gaat voor die \textit{ene specifieke probleemsituatie} op zoek naar een goede oplossing, op basis van de huidige kennis in het vakgebied.
-
-De doelgroep moet ook concreet en duidelijk zijn, dus geen algemene of vaag gedefinieerde groepen zoals \emph{bedrijven}, \emph{developers}, \emph{Vlamingen}, enz. Je richt je in elk geval op it-professionals, een bachelorproef is geen populariserende tekst. Eén specifiek bedrijf (die te maken hebben met een concrete probleemsituatie) is dus beter dan \emph{bedrijven} in het algemeen.
-
-Formuleer duidelijk de onderzoeksvraag! De begeleiders lezen nog steeds te veel voorstellen waarin we geen onderzoeksvraag terugvinden.
-
-Schrijf ook iets over de doelstelling. Wat zie je als het concrete eindresultaat van je onderzoek, naast de uitgeschreven scriptie? Is het een proof-of-concept, een rapport met aanbevelingen, \ldots Met welk eindresultaat kan je je bachelorproef als een succes beschouwen?
+Vele bedrijven zoeken tegenwoordig naar automatisering om competitief te blijven en repetitieve en nadeloze taken uit te sluiten. 
+Zeker in IT-bedrijven is dit cruciaal om steeds onderzoek te doen naar nieuwe en betere oplossingen, dat is bij Aware niet anders. 
+Aware zoekt momenteel naar manieren om nieuwe klanten makkelijker en vooral sneller op te zetten, om security redenen 
+moeten deze klanten op aparte instanties opgezet worden. In dit onderzoek wordt gekeken 
+aan de hand van een Proof of Concept of een automatiseringstool met name Ansible een mogelijke oplossing zou kunnen bieden 
+om instanties op AWS Lightsail te configureren. De resultaten kunnen bijdragen aan de 
+verdere ontwikkeling van dit concept of juist aanwijzen dat dit geen haalbare mogelijkheid is.
 
 %---------- Stand van zaken ---------------------------------------------------
 
 \section{State-of-the-art}%
 \label{sec:state-of-the-art}
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein, d.w.z.\ een inleidende, doorlopende tekst over het onderzoeksdomein van je bachelorproef. Je steunt daarbij heel sterk op de professionele \emph{vakliteratuur}, en niet zozeer op populariserende teksten voor een breed publiek. Wat is de huidige stand van zaken in dit domein, en wat zijn nog eventuele open vragen (die misschien de aanleiding waren tot je onderzoeksvraag!)?
+\subsection{Wat is Ansbile?}
+\label{subsec:Wat is Ansible?}
+Ansible is een open-source automatiseringsplatform dat kan worden gebruikt om grote groepen computersystemen te beheren. 
+Het helpt je bij het automatiseren van de implementatie van applicaties, configuratiebeheer, cloud provisioning, 
+het updaten van werkstations en servers en vele andere taken. 
+\par 
+Ansible werkt op Windows en Unix systemen en is opgenomen 
+als onderdeel van de Fedora distributie. Maar machines die gebruikt worden om de automatisering uit te voeren - 
+controleknooppunten genoemd - moeten Unix/Linux systemen zijn. Je kunt Windows machines gebruiken, 
+maar met een Windows Subsystem for Linux distributie. 
+\par
+Een van de meest opwindende aspecten van Ansible is dat het zonder 
+agents werkt, in tegenstelling tot de meeste andere oplossingen voor configuratiebeheer. 
+Het vereist geen systemen op afstand met een specifieke agent of software om wijzigingen 
+aan te brengen of opdrachten uit te voeren
+\autocite{Manjaly2022}.
 
-Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek?
+\subsection{Voordelen van Ansible}
+\label{Voordelen van Ansible}
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
+\begin{enumerate}
+  \item Het vermindert de middelen die nodig zijn voor IT-beheer - Sysadmins kunnen honderden of zelfs duizenden machines 
+  vanaf één punt en in één keer beheren.
 
-Draag zorg voor correcte literatuurverwijzingen! Een bronvermelding hoort thuis \emph{binnen} de zin waar je je op die bron baseert, dus niet er buiten! Maak meteen een verwijzing als je gebruik maakt van een bron. Doe dit dus \emph{niet} aan het einde van een lange paragraaf. Baseer nooit teveel aansluitende tekst op eenzelfde bron.
+  \item Het maakt automatisering toegankelijk - Een van de ontwerpdoelen van Ansible was dat er minimale kennis nodig zou zijn 
+  om het te gebruiken. Het platform gebruikt YAML (Yet Another Markup Language), een voor mensen leesbare taal met elementen 
+  uit andere gangbare programmeertalen.
 
-Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle nodige info aanwezig is om de bron terug te vinden (zoals uitvoerig besproken in de lessen Research Methods).
+  \item Het Ansible platform heeft geen invloed op de prestaties - Ansible vereist geen agents of software die op beheerde 
+  systemen draait of geïnstalleerd is. Daarom hoeven beheerde systemen geen rekenkracht aan Ansible te besteden.
+
+  \item Het zorgt voor consistentie - Het platform is ontworpen om minimaal te zijn en gebruikers in staat te stellen consistente 
+  omgevingen te creëren. En de hele operatie verloopt via een SSH-verbinding, wat betekent dat het forum niet nog meer 
+  complexiteit toevoegt aan de systemen
+  \autocite{Manjaly2022}.
+\end{enumerate}
+%   \subsection{Hoe werkt Ansible?}
+% \label{Hoe werkt Ansible?}
+% Ansible werkt door 'Modules' of code uit te voeren op doelmachines die beheerde knooppunten worden genoemd. 
+% Modules worden na uitvoering verwijderd van de doelsystemen. Deze modules kunnen van alles zijn, 
+% van het kopiëren van een bestand naar een externe machine en het maken van een gecomprimeerd archief van bestanden tot 
+% het beheren van VLAN-interfaces.
+% \par
+% In Ansible is een Task een eenvoudige actie die wordt toegepast op doelmachines. 
+% Taken gebruiken Modules om een actie uit te voeren op een apparaat op afstand. 
+% Deze Taken worden verder gerold in een geordende lijst in een Play. Een Play definieert welke taken worden toegepast op 
+% welke machines.
+% \par
+% Alle Plays worden gecombineerd tot een zogenaamd Playbook. Dit is waar gebruikers alle Ansible-code schrijven. 
+% Het Ansible playbook wordt uitgevoerd op een controleknooppunt en de Plays worden uitgevoerd in de volgorde waarin het is
+% geschreven. De Taken binnen de Plays worden op hun beurt op dezelfde manier uitgevoerd. Wanneer een Taak wordt uitgevoerd, 
+% stuurt het controleknooppunt de respectievelijke Modules naar alle doelmachines (beheerde knooppunten) die aan de taak zijn 
+% gekoppeld. Ansible Modules of, op hun beurt, Ansible Playbooks zijn over het algemeen idempotent. 
+% Dit betekent dat voordat de module wordt uitgevoerd, wordt gecontroleerd of het beheerde knooppunt al de gewenste status heeft. 
+% Zo ja, dan wordt daar geen actie uitgevoerd
+% \autocite{Manjaly2022}.
+
+\subsection{Wat is AWS Lightsail?}
+\label{Wat is AWS Lightsail?}
+Amazon Lightsail is een AWS dienst die virtual private server (VPS) instances, containers, opslag en beheerde databases biedt 
+tegen een kosteneffectieve en voorspelbare maandelijkse prijs. Het is bedoeld als de eenvoudigste manier om aan de slag te 
+gaan met AWS voor kleine bedrijven, studenten, ontwikkelaars en anderen die hun website of applicaties voor algemene doeleinden 
+in de cloud willen hosten.
+\par
+Lightsail is ontworpen met eenvoud in het achterhoofd, waardoor het gemakkelijk is voor gebruikers om websites en 
+applicaties te implementeren die misschien niet veel cloudervaring hebben. De eenvoudige interface biedt gebruikers een 
+minimaal aantal opties om te configureren, zodat ze hun bronnen snel en betrouwbaar kunnen inzetten zonder extra kennis of 
+AWS-ervaring
+\autocite{Graf2022}.
+
+\subsection{Waarom kiezen voor AWS?}
+\label{Waarom kiezen voor AWS?}
+Je betaalt geen extra kosten voor de manier waarop de infrastructuur is aangeschaft en gelicentieerd, 
+en zodra je deze diensten niet meer gebruikt, schakel je het uit en betaal je er niet meer voor.
+Hoewel er een aantal grote spelers op de markt zijn, waaronder Azure (Microsoft), Google Cloud, IBM Cloud en Oracle, 
+was AWS op het moment van schrijven nog steeds de belangrijkste speler in de ruimte
+\autocite{Sesto2022}.
+
+\subsection{Waarom Ansible voor cloud automation?}
+\label{Waarom Ansible voor cloud automation?}
+Cloud provisioning is een cruciaal onderdeel van het moderne cloud computing-model. 
+We leven in het tijdperk van microservices, waar automatisering geen nice-to-have meer is. 
+Het is een integraal onderdeel geworden van de dagelijkse activiteiten.
+\par
+Gelukkig is er een grote verscheidenheid aan automatiserings- en orkestratietools. 
+Deze tools kunnen ons tijd besparen en tegelijkertijd de prestaties en nauwkeurigheid van provisionerings- en 
+configuratiebeheerprocessen verbeteren.
+\par
+Ansible is in de eerste plaats een automatiseringstool. Met de juiste inhoud (rollen, modules en andere plugins) kan Ansible bijna 
+alles automatiseren. En cloudbeheer is geen uitzondering, wat betekent dat we onze provisioneringsprocessen met relatief gemak 
+kunnen automatiseren.
+\par
+Met een beetje hulp van producten voor continue integratie en continue implementatie (CI/CD) kan Ansible veranderen in een 
+machtige orkestratietool. We kunnen beginnen met het combineren van op zichzelf staande taken tot complexe workflows die 
+complexe IT-processen automatiseren.
+\par
+En als we workflowuitvoeringen koppelen aan gebeurtenissen uit onze monitoringsystemen, 
+hebben we een aantal serieuze stappen gezet in de richting van een zelfherstellende infrastructuur
+\autocite{Borovšak2021}.
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
@@ -42,31 +123,104 @@ Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle no
 %   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
 %   ...'')
 
-Je mag deze sectie nog verder onderverdelen in subsecties als dit de structuur van de tekst kan verduidelijken.
+% Je mag deze sectie nog verder onderverdelen in subsecties als dit de structuur van de tekst kan verduidelijken.
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}%
 \label{sec:methodologie}
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor literatuurstudie, interviews met belanghebbenden (bv.~voor requirements-analyse), experimenten, simulaties, vergelijkende studie, risico-analyse, PoC, \ldots?
+Aan de hand van een Proof of Concept zal er uitgemaakt worden of dit onderzoek bruikbaar is voor Aware en of er aan de benodigde 
+vereisten voldaan wordt, zoals schaalbaarheid, eenvoud en tijdswinst. De gehele opstelling zal op een Github-repository staan, zodat 
+deze eenvoudig te repliceren is.
 
-Valt je onderwerp onder één van de typische soorten bachelorproeven die besproken zijn in de lessen Research Methods (bv.\ vergelijkende studie of risico-analyse)? Zorg er dan ook voor dat we duidelijk de verschillende stappen terug vinden die we verwachten in dit soort onderzoek!
+\subsection{Fase 1: Literatuurstudie}
+\label{subsec:Fase 1: Literatuurstudie}
+Wetenschappelijke artikels en boeken worden geraadpleegd op platformen zoals Google Scholar en Springer om 
+kennis over het onderwerp op te doen. 
+Andere onderzoeken moeten niet noodzakelijk voor corresponderende doeleinden zijn om ons een beter perspectief geven op dit onderzoek. 
+Bestaande methodes en technieken zullen geanalyseerd worden en bijgehouden worden in een document om de meest effectieve aanpak te zoeken.
+Deze fase loopt parallel met de volgende fasen tot er een conclusie is gevormd, dit zal naar schatting 10 weken aanhouden.
 
-Vermijd onderzoekstechnieken die geen objectieve, meetbare resultaten kunnen opleveren. Enquêtes, bijvoorbeeld, zijn voor een bachelorproef informatica meestal \textbf{niet geschikt}. De antwoorden zijn eerder meningen dan feiten en in de praktijk blijkt het ook bijzonder moeilijk om voldoende respondenten te vinden. Studenten die een enquête willen voeren, hebben meestal ook geen goede definitie van de populatie, waardoor ook niet kan aangetoond worden dat eventuele resultaten representatief zijn.
+\subsection{Fase 2: Architectuurplan maken}
+\label{subsec:Fase 2: Architectuurplan maken}
+Van zodra er een idee is van hoe en wat, kan er een architectuurplan gemaakt worden waarmee het onderzoek uitgevoerd zal worden. 
+Het architectuurplan zal bestaan uit onder andere de virtuele machines met hun virtuele hardware, tools die gebruikt worden om 
+het onderzoek te realiseren en het gekozen besturingssysteem, in dit geval is dat Ubuntu.
+Daarnaast zal ook de benodigde SaaS (Software as a Service) die moet draaien op de virtuele machine en een lijst van zowel functionele eisen 
+(bv. use cases en vereisten) als niet-functonele eisen (bv. beveiliging en schaalbaarheid) in het architectuurplan inbegrepen zijn. 
+De geschatte tijdsduur voor deze fase bedraagt 2 weken.
 
-Uit dit onderdeel moet duidelijk naar voor komen dat je bachelorproef ook technisch voldoen\-de diepgang zal bevatten. Het zou niet kloppen als een bachelorproef informatica ook door bv.\ een student marketing zou kunnen uitgevoerd worden.
+\subsection{Fase 3: Cloudomgeving opzetten met Ansible}
+\label{subsec:Fase 3: Cloudomgeving opzetten met Ansible}
+Aan de start van deze fase wordt er een AWS Account aangemaakt. Via een Bash-script is het mogelijk om eenvoudig nieuwe AWS Lightsail 
+instanties aan te maken met de bijhorende specificaties, De nieuwe VPS (Virtual Private Server) zal direct weggeschreven worden 
+naar het inventaris bestand zodat het playbook later kan gerunt worden met de VPS als doel. 
+Om dit Bash-script te runnen wordt er gebruik gemaakt van WSL (Windows Subsystem for Linux). WSL zorgt ervoor dat Bash-scripts kunnen 
+runnen op een Windows toestel (het controle knooppunt), een alternatief is om een virtuele machine te maken met Linux als OS. Om ervoor te zorgen 
+dat dit script ook werkt, wordt AWS CLI geïnstalleerd en geconfigureerd (Access Key ID en Secret Access Key), 
+zonder dit kunnen er geen nieuwe AWS Lightsail instanties aangemaakt worden. 
+In deze fase wordt er een eerste instantie gecreëerd die de specificaties bevat uit het architectuurplan, deze eerste VPS 
+zal in de volgende fase de benodigde configuraties krijgen. Hiervoor worden 3 weken ingepland.
 
-Je beschrijft ook al welke tools (hardware, software, diensten, \ldots) je denkt hiervoor te gebruiken of te ontwikkelen.
+\subsection{Fase 4: Playbook maken}
+\label{subsec:Fase 4: Playbook maken}
+De volgende uitdaging is het maken van het playbook, hierbij worden allerlei taken gedefinieerd zoals bv. het Installeren van 
+software en enkele configuraties. De software die geïnstalleerd moet worden is PimLayer, PIM staat voor Product Information 
+Management en dient om een bedrijf te helpen met grote hoeveelheid complexe productinformatie. 
+AWS Lightsail gaat standaard zelf enkele basisconiguraties voor het netwerk en voor beveiliging 
+voor ons uitvoeren. Dit zorgt er dus voor dat deze fase al wat lichter wordt. Na deze fase, die naar schatting 
+3 weken duurt, is er een werkend en herbruikbaar playbook. 
 
-Probeer ook een tijdschatting te maken. Hoe lang zal je met elke fase van je onderzoek bezig zijn en wat zijn de concrete \emph{deliverables} in elke fase?
+\subsection{Fase 5: Testen}
+\label{subsec:Fase 5: Testen}
+Deze fase wordt tijdens fase 2 en 3 continue toegepast, door agile te werken wordt het script telkens uitgebreid en krijgt het playbook 
+telkens nieuwe functionaliteiten. Dit wordt gedaan tot het bash-script succesvol is 
+en het playbook foutloos is en doet wat er van verwacht wordt. Testen van het playbook is in feite vrij eenvoudig, doordat dit idempotent is 
+kan dit zoveel worden uitgevoerd naar wens. Op het moment dat de vorige testen succesvol waren, kan er overgegaan worden naar het testen 
+van de eenvoud om nieuwe instanties te lanceren. Deze test zou moeten nabootsen hoe het er in een echte situatie aan toe zou kunnen gaan. 
+Om deze test uit te voeren, wordt het bestaande Bash-script opnieuw uitgevoerd. Vervolgens wordt het playbook gerunt en zou de nieuwe instantie 
+in principe klaar moeten zijn voor gebruik. Omdat sommige klanten verschillende noden kunnen hebben, wordt deze instantie lichtelijk anders geconfigureerd. 
+Dit kan bv. met de grootte van de instantie en de manier waarop de SaaS geconfigureerd wordt. Om een vergelijkingspunt te creëren, zal er opnieuw 
+een instantie worden aangemaakt, maar deze keer zal dit handmatig gebeuren, zonder gebruik te maken van Ansible. 
+De tijdsduur van deze fase wordt geschat op 8 weken, 6 weken tijdens fase 2 en 3, plus twee een extra week voor het 
+aanmaken van de nieuwe instanties.
+
+\subsection{Fase 6: Rapporteren}
+\label{subsec:Fase 6: Rapporteren}
+Na de testfase wordt een rapport opgesteld waarin wordt beoordeeld in welke maten het Proof of Concept een oplossing bied en 
+een antwoord geeft aan de onderzoeksvraag. Doordat er zowel manueel als geautomatiseerd instanties kunnen worden opgezet, kunnen 
+factoren zoals eenvoud en snelheid vergeleken worden. Hiervoor wordt er gerekend op 
+een week tijd
+
+\subsection{Fase 7: Regelmatige \\feedback-momenten houden}
+\label{subsec:Fase 7: Regelmatige feedback-momenten houden}
+Het regelmatig afspreken met de co-promoter is essentieel om feedback en kritiek te ontvangen, te onderzoeken en om te verbeteren en 
+uiteindelijk te realiseren. Deze momenten worden doorheen het volledige onderzoek gehouden.
+
+\subsection{Fase 8: Conclusie}
+\label{subsec:Fase 8: Conclusie}
+Uit het rapport kan het antwoord op de onderzoeksvraag afgeleid worden. In deze fase kunnen er 
+mogelijks zowel positieve zaken als negatieve zaken aangekaart worden. Er wordt een week voorzien voor deze fase.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=\textwidth]{graphics/gantt.png}
+  \caption{Gantt chart}
+  \label{fig:gantt}
+\end{figure}
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
 
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de onderdelen van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet welk soort data je moet verzamelen en hoe je die moet meten.
+De te verwachten resultaten zijn dat dit onderzoek realistisch is en zal bijdragen aan de zoektocht van Aware. Het Proof of Concept is slechts een 
+simplistische simulatie van hoe het er aan de werkelijkheid aan toe zou gaan. Het moet bewijzen dat het een mogelijke oplossing is 
+voor het probleem en het hoeft daarom niet het finale product zijn.
 
-Wat heeft de doelgroep van je onderzoek aan het resultaat? Op welke manier zorgt jouw bachelorproef voor een meerwaarde?
-
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
+\section{Discussie, conclusie}
+\label{sec:Discussie-conclusie}
+Om te bepalen of het Proof of Concept waardig is, wordt het vergeleken met de huidige strategie binnen Aware, waarbij klanten handmatig worden 
+opgezet. Dit vergelijkingsproces is essentieel om verschillende aspecten grondig te evalueren, waaronder schaalbaarheid, tijd en 
+gebruiksgemak. Door deze factoren te onderzoeken en te analyseren, kan er een dieper inzicht worden verkregen in de potentiële voordelen en mogelijke 
+beperkingen van het voorgestelde concept.
 
