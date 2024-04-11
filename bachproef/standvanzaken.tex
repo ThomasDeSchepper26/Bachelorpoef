@@ -7,12 +7,179 @@
 
 % Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
 
-Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
+%Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
 
-Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz.\ naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin (narratieve referentie), gebruik je \texttt{$\backslash${}textcite\{\}}. Soms is de auteursnaam niet expliciet een onderdeel van de zin, dan gebruik je \texttt{$\backslash${}autocite\{\}} (referentie tussen haakjes). Dit gebruik je bv.~bij een citaat, of om in het bijschrift van een overgenomen afbeelding, broncode, tabel, enz. te verwijzen naar de bron. In de volgende paragraaf een voorbeeld van elk.
+%Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz.\ naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin (narratieve referentie), gebruik je \texttt{$\backslash${}textcite\{\}}. Soms is de auteursnaam niet expliciet een onderdeel van de zin, dan gebruik je \texttt{$\backslash${}autocite\{\}} (referentie tussen haakjes). Dit gebruik je bv.~bij een citaat, of om in het bijschrift van een overgenomen afbeelding, broncode, tabel, enz. te verwijzen naar de bron. In de volgende paragraaf een voorbeeld van elk.
 
-\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
+%\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
 
-Let er ook op: het \texttt{cite}-commando voor de punt, dus binnen de zin. Je verwijst meteen naar een bron in de eerste zin die erop gebaseerd is, dus niet pas op het einde van een paragraaf.
+%Let er ook op: het \texttt{cite}-commando voor de punt, dus binnen de zin. Je verwijst meteen naar een bron in de eerste zin die erop gebaseerd is, dus niet pas op het einde van een paragraaf.
+\section{Ansible}
+\subsection{Definitie}
+\label{Definitie}
+Ansible is een open-source automatiseringsplatform dat kan worden gebruikt om grote groepen computersystemen te beheren. 
+Het helpt je bij het automatiseren van de implementatie van applicaties, configuratiebeheer, cloud provisioning, 
+het updaten van werkstations en servers en vele andere taken. 
+\par 
+Ansible werkt op Windows en Unix systemen en is opgenomen 
+als onderdeel van de Fedora distributie. Maar machines die gebruikt worden om de automatisering uit te voeren - 
+controleknooppunten genoemd - moeten Unix/Linux systemen zijn. Je kunt Windows machines gebruiken, 
+maar met een Windows Subsystem for Linux distributie. 
+\par
+Een van de meest opwindende aspecten van Ansible is dat het zonder 
+agents werkt, in tegenstelling tot de meeste andere oplossingen voor configuratiebeheer. 
+Het vereist geen systemen op afstand met een specifieke agent of software om wijzigingen 
+aan te brengen of opdrachten uit te voeren
+\autocite{Manjaly2022}.
 
-\lipsum[7-20]
+\subsection{Voordelen van Ansible}
+\label{Voordelen van Ansible}
+
+\begin{enumerate}
+  \item Het vermindert de middelen die nodig zijn voor IT-beheer - Sysadmins kunnen honderden of zelfs duizenden machines 
+  vanaf één punt en in één keer beheren.
+
+  \item Het maakt automatisering toegankelijk - Een van de ontwerpdoelen van Ansible was dat er minimale kennis nodig zou zijn 
+  om het te gebruiken. Het platform gebruikt YAML (Yet Another Markup Language), een voor mensen leesbare taal met elementen 
+  uit andere gangbare programmeertalen.
+
+  \item Het Ansible platform heeft geen invloed op de prestaties - Ansible vereist geen agents of software die op beheerde 
+  systemen draait of geïnstalleerd is. Daarom hoeven beheerde systemen geen rekenkracht aan Ansible te besteden.
+
+  \item Het zorgt voor consistentie - Het platform is ontworpen om minimaal te zijn en gebruikers in staat te stellen consistente 
+  omgevingen te creëren. En de hele operatie verloopt via een SSH-verbinding, wat betekent dat het forum niet nog meer 
+  complexiteit toevoegt aan de systemen
+  \autocite{Manjaly2022}.
+\end{enumerate}
+
+\subsection{Ansible voor cloud automation}
+\label{Ansible voor cloud automation}
+Cloud provisioning is een cruciaal onderdeel van het moderne cloud computing-model. 
+We leven in het tijdperk van microservices, waar automatisering geen nice-to-have meer is. 
+Het is een integraal onderdeel geworden van de dagelijkse activiteiten.
+\par
+Gelukkig is er een grote verscheidenheid aan automatiserings- en orkestratietools. 
+Deze tools kunnen ons tijd besparen en tegelijkertijd de prestaties en nauwkeurigheid van provisionerings- en 
+configuratiebeheerprocessen verbeteren.
+\par
+Ansible is in de eerste plaats een automatiseringstool. Met de juiste inhoud (rollen, modules en andere plugins) kan Ansible bijna 
+alles automatiseren. En cloudbeheer is geen uitzondering, wat betekent dat we onze provisioneringsprocessen met relatief gemak 
+kunnen automatiseren.
+\par
+Met een beetje hulp van producten voor continue integratie en continue implementatie (CI/CD) kan Ansible veranderen in een 
+machtige orkestratietool. We kunnen beginnen met het combineren van op zichzelf staande taken tot complexe workflows die 
+complexe IT-processen automatiseren.
+\par
+En als we workflowuitvoeringen koppelen aan gebeurtenissen uit onze monitoringsystemen, 
+hebben we een aantal serieuze stappen gezet in de richting van een zelfherstellende infrastructuur
+\autocite{Borovšak2021}.
+
+\section{AWS}
+  \subsection{Definitie}
+\label{Definitie}
+Amazon Lightsail is een AWS dienst die virtual private server (VPS) instances, containers, opslag en beheerde databases biedt 
+tegen een kosteneffectieve en voorspelbare maandelijkse prijs. Het is bedoeld als de eenvoudigste manier om aan de slag te 
+gaan met AWS voor kleine bedrijven, studenten, ontwikkelaars en anderen die hun website of applicaties voor algemene doeleinden 
+in de cloud willen hosten.
+\par
+Lightsail is ontworpen met eenvoud in het achterhoofd, waardoor het gemakkelijk is voor gebruikers om websites en 
+applicaties te implementeren die misschien niet veel cloudervaring hebben. De eenvoudige interface biedt gebruikers een 
+minimaal aantal opties om te configureren, zodat ze hun bronnen snel en betrouwbaar kunnen inzetten zonder extra kennis of 
+AWS-ervaring
+\autocite{Graf2022}.
+
+\subsection{Waarom kiezen voor AWS?}
+\label{Waarom kiezen voor AWS?}
+Je betaalt geen extra kosten voor de manier waarop de infrastructuur is aangeschaft en gelicentieerd, 
+en zodra je deze diensten niet meer gebruikt, schakel je het uit en betaal je er niet meer voor.
+Hoewel er een aantal grote spelers op de markt zijn, waaronder Azure (Microsoft), Google Cloud, IBM Cloud en Oracle, 
+was AWS op het moment van schrijven nog steeds de belangrijkste speler in de ruimte
+\autocite{Sesto2022}.
+
+\section{Infrastructure as Code (IaC)}
+\subsection{Definitie}
+\label{Definitie}
+Het beheer van de infrastructuurvoorziening van SaaS-applicaties van bedrijven wordt geconfronteerd met verschillende uitdagingen, zoals configuratiedrift en de heterogeniteit van cloudproviders. Daarom worden Infrastructure-as-Code (IaC) technologieën gebruikt om de uitrol van SaaS-applicaties te automatiseren. IaC vergemakkelijkt de snelle uitrol van nieuwe versies van applicatie-infrastructuren zonder dat dit ten koste gaat van de kwaliteit of stabiliteit \autocite{Achar2021}.
+\par
+Het bouwen van infrastructuur is een evoluerend proces dat vaak herhaalde aanpassingen en verbeteringen vereist met betrekking tot aspecten als schaalbaarheid, prestaties, fouttolerantie en onderhoudbaarheid. In traditionele omgevingen was het bouwen en implementeren van infrastructuurcomponenten een handmatige en vervelende taak, wat leidde tot vertragingen en verminderde wendbaarheid van de organisatie. Met de opkomst van IaC worden infrastructuurcomponenten nu behandeld als louter softwareconstructies,  een code die door verschillende teams gedeeld kan worden. Volgens Sandobalin et al. wordt Infrastructure as Code (IaC) gedefinieerd als een benadering van infrastructuurautomatisering gebaseerd op ontwikkelings- en operationele (DevOps) praktijken die continue samenwerking tussen ontwikkelaars en operationele medewerkers bevorderen door middel van een reeks principes, technieken en tools om de levertijd van software te optimaliseren. Om deze definitie samen te vatten, voldoet een IaC-oplossing aan de volgende principes:
+\begin{enumerate}
+  \item Versiecontrole is een populair concept waarin elke release overeenkomt met een build van broncode die wordt onderhouden als een artefact met versiebeheer in de omgeving. In IaC wordt een soortgelijk principe toegepast om de infrastructuur en wijzigingen te beheren met behulp van versiebeheer-commits in de broncode-repository. Dit zorgt voor traceerbaarheid van veranderingen die zijn aangebracht in de infrastructuurdefinitie, met vermelding van wie veranderingen heeft aangebracht, wat er is veranderd, enzovoort. Dit is cruciaal bij het terugdraaien naar een vorige codeversie tijdens het oplossen van een probleem.
+
+  \item Voorspelbaarheid verwijst naar de IaC-mogelijkheid als een oplossing om altijd dezelfde omgeving en bijbehorende attributen (zoals gedefinieerd in het versiebeheersysteem) te bieden elke keer dat deze wordt aangeroepen.
+
+  \item Consistentie zorgt ervoor dat meerdere instanties van dezelfde basislijncode een vergelijkbare omgeving bieden.  Dit voorkomt inconsistenties en configuratiedrift bij het handmatig bouwen van complexe infrastructuureenheden.
+
+  \item Repeatability is een oplossing die altijd dezelfde resultaten levert op basis van de input.
+
+  \item Composability verwijst naar een service die wordt beheerd in een modulair en abstract formaat, dat kan worden gebruikt om complexe applicatiesystemen te bouwen. Deze eigenschap stelt gebruikers in staat om zich te concentreren op het bouwen van de doelapplicatie in plaats van zich zorgen te maken over de details onder de motorkap en de complexe logica die wordt gebruikt voor provisioning.
+  \autocite{Achar2021}.
+\end{enumerate}
+
+\subsection{IaC Concepten}
+\label{IaC Concepten}
+\begin{enumerate}
+    \item Elke infrastructuurbron/component wordt gedeclareerd als code, inclusief pakketten, mappen, gebruikersaccounts, hulpprogramma's en configuraties. 
+    \item De broncode voor elke IaC tool wordt aangeduid met een specifieke term, bijv. packages, directories, user accounts, utilities, en configurations.
+    \item IaC introduceert aspecten van herhaalbaarheid, aanzienlijke snelheidsverbeteringen en verhoogde betrouwbaarheid.
+    \item -	IaC biedt consistentie in de build. Als je bijvoorbeeld verschillende omgevingen moet beheren (bijv. ontwikkeling, QA, staging en productie), zorgt het opstarten van die omgevingen vanuit dezelfde codebase ervoor dat de configuratiedrift tussen de omgevingen te verwaarlozen is, waardoor het domein gezond blijft.
+    \autocite{Achar2021}.
+\end{enumerate}
+
+\subesection{Soorten IaC}
+\label{Soorten IaC}
+Een infrastructuurcodebase bevat veel aspecten, van het specificeren van infrastructuurbronnen tot het instellen van afzonderlijke instanties van andere gerelateerde bronnen tot het beheren van de levering van talloze onderling afhankelijke frameworkstukken.  Als gevolg hiervan zijn er verschillende technieken voor het beoordelen van verschillende soorten IaC.
+\par
+De meeste IaC tools ondersteunen twee primaire taalconstructies: imperatieve en declaratieve taal. Imperatieve code verwijst naar een procedurele reeks instructies die specificeren hoe een taak moet worden uitgevoerd. Ansible en Chef werken in een procedurele stijl, wat betekent dat ze stap-voor-stap codes identificeren en hoe de gewenste eindtoestand te bereiken. Aan de andere kant specificeert declaratieve code de gewenste eindtoestand, maar niet de methode om deze te voltooien. Bijvoorbeeld AWS CloudFormation, Google Deployment Manager, Terraform, SaltStack, Pulumi en Heat werken allemaal in een declaratieve codestijl. IaC moedigt een declaratieve codestijl aan waarin de gewenste eindtoestand en de configuratie aanwezig zijn voordat de uiteindelijke vorm wordt geleverd.  Declaratieve code is echter vaak beter herbruikbaar in de omgeving, omdat er rekening wordt gehouden met wijzigingen in de huidige configuratie en tegelijkertijd wordt voldaan aan elk nieuw verzoek voor nieuwe infrastructuur \autocite{Achar2021}.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=\textwidth]{graphics/Declaratieve_code.png}
+  \caption{Een bovenaanzicht van hoe declaratieve code werkt}
+  \label{fig:gantt}
+\end{figure}
+
+\section{Production Information Managements System (PIMS)}
+\subsection{Definitie}
+\label{Definitie}
+
+Product information management systems (PIMSs) zijn IT-systemen die worden gebruikt om klantgerichte productinformatie centraal te beheren en te synchroniseren. Ze richten zich op het verenigen en distribueren van productinformatie zonder de noodzaak van handmatige invoer in verschillende systemen. PIMS ondersteunen bedrijfsprocessen waarbij klantgerichte productinformatie betrokken is, zoals marketing. Ze bieden voordelen zoals een kortere time-to-market, een uitgebreider productassortiment, een uniforme klantervaring, beter complexiteitsbeheer, gecontroleerde distributie van content en naleving van wettelijke voorschriften. PIMS helpen ook bij het verlagen van de kosten, het verbeteren van de snelheid waarmee informatie wordt opgehaald, het minimaliseren van gegevensopschoning en logistieke fouten, en het verminderen van retourzendingen en informatieverzoeken.
+\autocite{Battistello2021}
+\par
+Product Information Management (PIM) is een relatief nieuw begrip. Het concept begon rond 2003 aan kracht te winnen. Het wordt steeds populairder door de snelle groei van e-commerce en de populariteit van online winkels. In de eerste plaats vereist online verkoop dat bedrijven duidelijke basisproductinformatie verzamelen die consumenten ook echt kunnen begrijpen. Zonder productinformatie, zoals de naam van het product, de prijs en de productcategorie, kon het product helemaal niet online gevonden en verkocht worden. Ten tweede stelt het internet detail- en groothandelbedrijven in staat om veel meer producten online aan te bieden aan hun klanten, vaak omschreven als "long tail", dan in fysieke winkels.1 Terwijl het mogelijk was om productinformatie voor maximaal duizend of meer producten in een spreadsheet te beheren, bieden de meeste online winkels nu tienduizenden, zo niet honderdduizenden producten aan. In dit geval werken spreadsheets gewoon niet meer. Bovendien wordt productinformatie niet langer aangeboden via het web, maar via een grote verzameling kanalen zoals mobiele telefoons, tablets, winkels, verkooppunten, gedrukte catalogi, flyers, enz. Deze groei vraagt om een gespecialiseerd systeem om zoveel informatie te beheren die zo wijd verspreid is. Tegelijkertijd eisen consumenten meer, betere en consistente productinformatie. Over het algemeen geldt: hoe meer informatie, hoe meer je verkoopt. Een gedetailleerde productbeschrijving wordt gezien als een van de belangrijkste kenmerken van een webwinkel. Om een product online te verkopen willen klanten talloze details opzoeken en vergelijken en willen ze alle specificaties weten voordat ze kopen \autocite{Abraham2014}.
+\par
+Het belang van het PIM-systeem is toegenomen door de technische geavanceerdheid van producten, hun behoefte aan intern beheer of externe publicatie. ERP- en CCMS-systemen moeten worden geïntegreerd met een PIM-systeem dat fungeert als de "ruggengraat" van productinformatie \autocite{Matos2022}.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=\textwidth]{bachproef/graphics/PIM_Definitie.jpg}
+  \caption{PIM proces}
+  \label{fig:PIM proces}
+  \autocite{Derpunkt2021}
+\end{figure}
+
+\subsection{Voordelen van PIMS voor belanghebbenden}
+\label{Voordelen van PIMS voor belanghebbenden}
+
+De aspecten van het PIMS die relevant waren voor de belanghebbenden waren onder andere toegang hebben tot bijgewerkte productinformatie, het hebben van een gedeelde productinformatie HUB, het delen van informatie binnen het bedrijf en het definiëren van eigenaarschap en governance van productinformatie. De vereisten van de belanghebbenden werden geïdentificeerd met behulp van de MoSCoW-prioriteringstechniek. De startbijeenkomst hielp bij het vaststellen van een gemeenschappelijk begrip van de voordelen en beperkingen van PIMS en bij het verzamelen van de algemene problemen waarmee het bedrijf te maken had bij het beheren van productinformatie.
+\autocite{Battistello2021}
+
+\subsection{Voordelen van het stockeren van product information in PIMS}
+\label{Voordelen van het stockeren van product information in PIMS}
+
+Het opslaan van productinformatie in een PIMS biedt verschillende voordelen. Ten eerste helpt het om problemen met het beheer van productinformatie op te lossen en negatieve gevolgen voor het bedrijf te voorkomen. Ten tweede biedt het een gecentraliseerd en generiek model voor productinformatie, dat meestal niet direct beschikbaar is in bedrijven. Ten derde maakt het een gedeelde manier van het beheren van productinformatie mogelijk, wat vooral gunstig is voor organisaties met complexe structuren en meerdere belanghebbenden. Tot slot helpt het bij het definiëren en documenteren van de informatie die nodig is voor het project, waardoor het eenvoudiger wordt om belanghebbenden te betrekken en te zorgen voor duidelijkheid in het informatiebeheerproces.
+\autocite{Battistello2021}
+
+\subsection{Welke bedrijven komen in aanmerking?}
+\label{Welke bedrijven komen in aanmerking?}
+Een PIM-systeem is niet voor elk bedrijf een "must have". Verschillende factoren bepalen of er behoefte is aan een PIM-systeem:
+\begin{enumerate}
+    \item Veel producten en productwijzigingen: vooral modewinkels wijzigen hun hele assortiment twee keer of zelfs meer per jaar.
+    \item Veel gebruikers: Excel is een geweldig hulpmiddel, maar met een paar duizend producten wordt het minder geweldig, vooral als meerdere mensen tegelijkertijd aan productinformatie moeten werken.
+    \item Complexiteit van producten: wanneer producten veel kenmerken hebben en het soort producten dat wordt aangeboden sterk verschilt, nemen de kosten van het werken met Excel of standaard databasesystemen sterk toe. Met PIM-systemen kunnen producten veel eenvoudiger worden geclassificeerd.
+    \item Gegevenskwaliteit/compliance: PIM heeft verschillende hulpmiddelen om de kwaliteit van productinformatie te verbeteren en te handhaven. Meestal wordt ook bijgehouden wie welke productinhoud bewerkt en/of goedkeurt en wanneer.
+    \item Veel bronnen/synchronisaties: het handmatig importeren van gegevens is te doen als het gaat om het eens per week uploaden van een CSV-bestand. De dagelijkse synchronisatie van gegevens met 15 verschillende leveranciers kan echter het beste worden geautomatiseerd.
+    \item Veel klantsegmenten: hoe meer klantsegmenten, hoe meer verschillende visies op het complete assortiment moeten worden onderhouden.
+    \item Veel kanalen: hoe meer (verschillende) kanalen (print, web, mobiel, etc.) hoe waarschijnlijker het is dat verschillende outputformaten en interfaces ondersteund moeten worden.
+    \item Landen/talen: als je productinformatie aanbiedt in 32 landen met lokale aanpassing van de inhoud, is een PIM niet langer een optie maar een must have. Zelfs bedrijven met een beperkt aantal producten kunnen besluiten om te investeren in een PIM-systeem. Een producent van premium kinderwagens heeft bijvoorbeeld maar drie verschillende soorten kinderwagens. De kinderwagens worden echter verkocht in meer dan 80 landen in 13 verschillende talen, de producten hebben meer dan 1000 varianten omdat onderdelen van kleur kunnen verschillen, productonderdelen na verloop van tijd veranderen en per land kunnen verschillen vanwege wettelijke eisen, enz. Als gevolg hiervan zijn meer dan 30 centrale marketingmedewerkers en lokale verkoopmedewerkers continu bezig met productinformatie en bleek een PIM-systeem noodzakelijk om de complexiteit te beheren \autocite{Abraham2014}.
+\end{enumerate}
+
